@@ -1,6 +1,7 @@
 "use client";
 import { MenuBar } from "@/components/menubar/menubar";
-import { Avatar, Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Stack, TextField, Typography } from "@mui/material";
+import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Stack, TextField, Typography } from "@mui/material";
+import React from "react";
 import { blue } from "@mui/material/colors";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -15,7 +16,6 @@ export type Goals = {
 };
 export default function Goals() {
   const [coursesPlanned, setCoursesPlanned] = useState(0);
-  const [message, setMessage] = useState(false);
   const session = useSession();
   const [status, setStatus] = useState(false);
   const [goals, setGoals] = useState<Goals[]>([]);
@@ -66,7 +66,7 @@ export default function Goals() {
                   <Typography variant="h5">Your goal</Typography>
                   <Card sx={{maxWidth: 345}}>
                     <CardHeader avatar={
-                      <Avatar sx={{bgcolor: blue[600]}}>{session.data?.user.name?.toUpperCase().substring(0, 1) || session.data?.user.email?.toUpperCase().substring(0, 1)}</Avatar>
+                      <Avatar sx={{bgcolor: blue[600]}}>{session.data?.user?.name?.toUpperCase().substring(0, 1) || session.data?.user.email?.toUpperCase().substring(0, 1)}</Avatar>
                     } title="Weekly goal" subheader={new Date(goal.createdAt).toLocaleString()} />
                       <CardMedia sx={{height: 190}} image="tewax-hub.png" title="Courses" />
                       <CardContent>
@@ -103,7 +103,6 @@ export default function Goals() {
                     setGoals(updatedGoalData);
                     setStatus(true);
                   } else {
-                    setMessage(false);
                     setStatus(false);
                     alert("Failed to set your goal");
                     console.error("Failed to set goal");
@@ -126,7 +125,7 @@ export default function Goals() {
                   label="Plan"
                   value={coursesPlanned}
                   onChange={(e) => {
-                    setCoursesPlanned(e.target.value as any);
+                    setCoursesPlanned(parseInt(e.target.value));
                   }}
                   required
                 />

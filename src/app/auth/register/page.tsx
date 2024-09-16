@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/constants";
 import { EmailLoginForm } from "@/modules/auth/components/email-login-form/email-login-form";
+import React from "react";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

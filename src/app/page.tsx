@@ -1,5 +1,7 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import Link from "next/link";
+import React from "react";
+import "./globalicons.css";
+
 
 export default function Home() {
   return (
@@ -85,7 +87,19 @@ export default function Home() {
           </Stack>
           <br />
           <Stack>
-              <Typography variant="h4" sx={{display: "flex", position: "relative", fontFamily: "'Archivo Black', sans-serif", width: "100%", alignItems: "center", justifyContent: "center"}}>Featured Projects</Typography>
+            <Typography
+              variant="h4"
+              sx={{
+                display: "flex",
+                position: "relative",
+                fontFamily: "'Archivo Black', sans-serif",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              Featured Projects
+            </Typography>
           </Stack>
         </Stack>
       </Stack>

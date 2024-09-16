@@ -3,6 +3,7 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import React from "react";
 
 export function EmailLoginForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,7 +12,7 @@ export function EmailLoginForm() {
     return (
       <div>
         <p>
-          {`Check your email for a link to sign in. If it doesn't appear within a few minutes, check your spam folder.`}
+          {"Check your email for a link to sign in. If it doesn't appear within a few minutes, check your spam folder."}
         </p>
       </div>
     );
@@ -22,6 +23,7 @@ export function EmailLoginForm() {
       action="#"
       onSubmit={(e) => {
         e.preventDefault();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         signIn("email", { email: (e.target as any).email.value });
         setSubmitted(true);
       }}

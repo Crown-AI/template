@@ -1,7 +1,8 @@
 import { MenuBar } from "@/components/menubar/menubar";
 import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import { Box, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import React from "react";
+import "../globalicons.css";
 
 export default async function Dashboard() {
   const session = await getServerSession();

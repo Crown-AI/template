@@ -1,6 +1,7 @@
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import MenuButton from "./menu-bar-button/menu-bar-button";
 import Image from "next/image";
+import React from "react";
 
 export function MenuBar({ name }: { name: string }) {
   return (

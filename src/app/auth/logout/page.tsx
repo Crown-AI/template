@@ -2,6 +2,7 @@
 
 import { Stack, Typography } from "@mui/material";
 import { signOut } from "next-auth/react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 

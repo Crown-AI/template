@@ -3,7 +3,7 @@ import { prisma } from "@/modules/prisma/lib/prisma-client/prisma-client";
 import { NextRequest, NextResponse } from "next/server";
 import { endOfWeek } from "date-fns";
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
   const { coursesPlanned, userId } = await req.json();
   const expiryDate = endOfWeek(new Date(), { weekStartsOn: 1 });
   const session = await getServerSession();
@@ -23,7 +23,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     );
   }
   if (parseInt(coursesPlanned) <= 0) {
-    return NextResponse.json({error: "You cannot set your goal as zero or a negative number"})
+    return NextResponse.json({ error: "You cannot set your goal as zero or a negative number" });
   }
   await prisma.goal.create({
     data: {

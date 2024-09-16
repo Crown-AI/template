@@ -1,8 +1,7 @@
-import { getServerSession } from "@/modules/auth/lib/get-server-session/get-server-session";
 import { Stack, Typography } from "@mui/material";
+import React from "react";
 
 export default async function NotFound() {
-  const session = await getServerSession();
 
   return (
     <Stack>
