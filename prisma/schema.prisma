@@ -66,5 +66,3 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
-
-// Application models
