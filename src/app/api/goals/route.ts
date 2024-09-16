@@ -46,7 +46,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   return NextResponse.json({ message: "Goal created successfully" }, { status: 200 });
 };
 
-export const GET = async (res: NextResponse) => {
+export const GET = async (req: NextRequest, res: NextResponse) => {
   const session = await getServerSession();
   const userId = session.user.id;
   const data = await prisma.goal.findMany({
