@@ -5,6 +5,7 @@ import React from "react";
 import { blue } from "@mui/material/colors";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import "../globalicons.css";
 
 export type Goals = {
   id: string;
