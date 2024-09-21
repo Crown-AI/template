@@ -98,7 +98,7 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              Featured Projects
+              Featured Project
             </Typography>
           </Stack>
         </Stack>
